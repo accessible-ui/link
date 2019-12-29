@@ -1,10 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Link> should override default aria attributes: role='button' tabindex='-1' 1`] = `
+<DocumentFragment>
+  <span
+    role="button"
+    tabindex="-1"
+  />
+</DocumentFragment>
+`;
+
 exports[`<Link> should render aria roles: role='link' tabindex='0' 1`] = `
 <DocumentFragment>
   <span
     role="link"
     tabindex="0"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Link> should work without onClick handler: renders 1`] = `
+<DocumentFragment>
+  <span
+    role="button"
+    tabindex="-1"
   />
 </DocumentFragment>
 `;
