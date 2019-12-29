@@ -37,8 +37,6 @@ A component that adds aria attributes and keydown events to non-A elements in or
 import AccessibleLink from '@accessible/link'
 
 const Component = () => (
-  // adds nav events and roles to the span which make it accessible
-  // to screen readers and keyboard navigators
   <AccessibleLink>
     <span onClick={() => (window.location.href = '/foo')}>Go to /foo</span>
   </AccessibleLink>
@@ -48,6 +46,10 @@ const Component = () => (
 ## API
 
 ### `<AccessibleLink>`
+
+Adds `role="link"` and `tabIndex={0}` props to its child component unless those props are already
+defined in the child component's props. Also adds a `keydown` event for the `Enter` key which
+causes the component's `onClick` property to fire.
 
 #### Props
 
