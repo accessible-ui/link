@@ -1,16 +1,26 @@
 {
   "name": "@accessible/link",
   "version": "1.0.0",
-  "homepage": "https://github.com/accessible-ui/accessible#readme",
-  "repository": "github:accessible-ui/accessible",
-  "bugs": "https://github.com/accessible-ui/accessible/issues",
+  "homepage": "https://github.com/accessible-ui/link#readme",
+  "repository": "github:accessible-ui/link",
+  "bugs": "https://github.com/accessible-ui/link/issues",
   "author": "Jared Lunde <jared.lunde@gmail.com> (https://jaredLunde.com)",
   "license": "MIT",
-  "description": "",
+  "description": "A component that adds aria attributes and keyboard functionality to non-A elements in order to make them act like native links",
   "keywords": [
     "react",
     "react component",
-    "link"
+    "link",
+    "accessible link",
+    "a11y link",
+    "react a11y link",
+    "react accessible link",
+    "react link",
+    "react link component",
+    "a11y",
+    "react aria link",
+    "aria",
+    "aria link"
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -74,7 +84,10 @@
     "ts-jest": "latest",
     "typescript": "latest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@accessible/use-keycode": "^2.0.0",
+    "@react-hook/merged-ref": "^1.0.8"
+  },
   "peerDependencies": {
     "prop-types": ">=15.6",
     "react": ">=16.8",

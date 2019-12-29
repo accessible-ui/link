@@ -1,7 +1,7 @@
 <hr>
 <div align="center">
   <h1 align="center">
-    @accessible/link
+    &lt;AccessibleLink&gt;
   </h1>
 </div>
 
@@ -12,11 +12,11 @@
   <a aria-label="Types" href="https://www.npmjs.com/package/@accessible/link">
     <img alt="Types" src="https://img.shields.io/npm/types/@accessible/link?style=for-the-badge&labelColor=24292e">
   </a>
-  <a aria-label="Code coverage report" href="https://codecov.io/gh/accessible-ui/accessible">
-    <img alt="Code coverage" src="https://img.shields.io/codecov/c/gh/accessible-ui/accessible?style=for-the-badge&labelColor=24292e">
+  <a aria-label="Code coverage report" href="https://codecov.io/gh/accessible-ui/link">
+    <img alt="Code coverage" src="https://img.shields.io/codecov/c/gh/accessible-ui/link?style=for-the-badge&labelColor=24292e">
   </a>
-  <a aria-label="Build status" href="https://travis-ci.org/accessible-ui/accessible">
-    <img alt="Build status" src="https://img.shields.io/travis/accessible-ui/accessible?style=for-the-badge&labelColor=24292e">
+  <a aria-label="Build status" href="https://travis-ci.org/accessible-ui/link">
+    <img alt="Build status" src="https://img.shields.io/travis/accessible-ui/link?style=for-the-badge&labelColor=24292e">
   </a>
   <a aria-label="NPM version" href="https://www.npmjs.com/package/@accessible/link">
     <img alt="NPM Version" src="https://img.shields.io/npm/v/@accessible/link?style=for-the-badge&labelColor=24292e">
@@ -29,21 +29,31 @@
 <pre align="center">npm i @accessible/link</pre>
 <hr>
 
-A component that adds aria attributes and keyboard functionality to non-A elements in order to make them act like native links
+A component that adds aria attributes and keydown events to non-A elements in order to make them act like native links.
 
 ## Quick Start
 
 ```jsx harmony
-import _ from '@accessible/link'
+import AccessibleLink from '@accessible/link'
+
+const Component = () => (
+  // adds nav events and roles to the span which make it accessible
+  // to screen readers and keyboard navigators
+  <AccessibleLink>
+    <span onClick={() => (window.location.href = '/foo')}>Go to /foo</span>
+  </AccessibleLink>
+)
 ```
 
 ## API
 
-### Props
+### `<AccessibleLink>`
 
-| Prop | Type | Default | Required? | Description |
-| ---- | ---- | ------- | --------- | ----------- |
-|      |      |         |           |             |
+#### Props
+
+| Prop     | Type                 | Default     | Required? | Description                                                           |
+| -------- | -------------------- | ----------- | --------- | --------------------------------------------------------------------- |
+| children | `React.ReactElement` | `undefined` | Yes       | The component you want to add accessible roles and keydown events to. |
 
 ## LICENSE
 
