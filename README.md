@@ -33,6 +33,8 @@ A component that adds aria attributes and keydown events to non-A elements in or
 
 ## Quick Start
 
+[Check out the example on CodeSandbox](https://codesandbox.io/s/accessiblelink-examples-rohqw)
+
 ```jsx harmony
 import AccessibleLink from '@accessible/link'
 
