@@ -1,6 +1,6 @@
 {
   "name": "@accessible/link",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/accessible-ui/link#readme",
   "repository": "github:accessible-ui/link",
   "bugs": "https://github.com/accessible-ui/link/issues",
@@ -85,7 +85,7 @@
     "typescript": "latest"
   },
   "dependencies": {
-    "@accessible/use-keycode": "^2.0.0",
+    "@accessible/use-keycode": "^3.0.1",
     "@react-hook/merged-ref": "^1.0.8"
   },
   "peerDependencies": {
