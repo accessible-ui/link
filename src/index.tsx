@@ -16,13 +16,10 @@ const Link: React.FC<LinkProps> = ({children}) => {
     ref: useMergedRef(
       // @ts-ignore
       children.ref,
-      useKeycodes(
-        {
-          // enter
-          13: onClick,
-        },
-        [onClick]
-      )
+      useKeycodes({
+        // enter
+        13: onClick,
+      })
     ),
   })
 }
