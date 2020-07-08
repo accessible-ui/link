@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* jest */
 import React from 'react'
-import {render, fireEvent} from '@testing-library/react'
+import {render, fireEvent, screen} from '@testing-library/react'
 import Link from './index'
 
 describe('<Link>', () => {
@@ -19,7 +20,7 @@ describe('<Link>', () => {
       render(
         <Link>
           <span
-            role="button"
+            role='button'
             tabIndex={-1}
             onClick={() => (window.location.href = '/foo')}
           />
@@ -32,7 +33,7 @@ describe('<Link>', () => {
     expect(
       render(
         <Link>
-          <span role="button" tabIndex={-1} />
+          <span role='button' tabIndex={-1} />
         </Link>
       ).asFragment()
     ).toMatchSnapshot(`renders`)
@@ -40,13 +41,13 @@ describe('<Link>', () => {
 
   it('should call onClick when enter key is pressed', () => {
     const cb = jest.fn()
-    const {getByTestId} = render(
+    render(
       <Link>
-        <span onClick={cb} data-testid="link" />
+        <span onClick={cb} data-testid='link' />
       </Link>
     )
 
-    fireEvent.keyDown(getByTestId('link'), {which: 13})
+    fireEvent.keyDown(screen.getByTestId('link'), {key: 'Enter'})
     expect(cb).toBeCalledTimes(1)
   })
 })

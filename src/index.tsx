@@ -1,26 +1,38 @@
 import * as React from 'react'
-import {useKeycodes} from '@accessible/use-keycode'
+import useKey from '@accessible/use-key'
 import useMergedRef from '@react-hook/merged-ref'
 
-const Link: React.FC<LinkProps> = ({children}) => {
+export function useA11yLink<
+  T extends HTMLElement,
+  E extends React.MouseEvent<T, MouseEvent>
+>(target: React.RefObject<T> | T | null, onClick: (event: E) => any) {
+  // @ts-expect-error
+  useKey(target, {Enter: onClick})
+  return {
+    onClick,
+    role: 'link',
+    tabIndex: 0,
+  }
+}
+
+export function Link({children}: LinkProps) {
+  const ref = React.useRef(null)
   const props = children.props
+  const {onClick, role, tabIndex} = useA11yLink(ref, props.onClick || noop)
 
   return React.cloneElement(children, {
-    role: props.hasOwnProperty('role') ? props.role : 'link',
-    tabIndex: props.hasOwnProperty('tabIndex') ? props.tabIndex : 0,
+    onClick,
+    role: props.hasOwnProperty('role') ? props.role : role,
+    tabIndex: props.hasOwnProperty('tabIndex') ? props.tabIndex : tabIndex,
     ref: useMergedRef(
       // @ts-ignore
       children.ref,
-      useKeycodes({
-        // enter
-        13: props.onClick ? props.onClick : noop,
-      })
+      ref
     ),
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = () => {}
+function noop() {}
 
 export interface LinkProps {
   children: React.ReactElement | JSX.Element
